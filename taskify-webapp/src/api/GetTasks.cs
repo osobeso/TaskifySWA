@@ -1,4 +1,4 @@
-namespace Taskify.Api.Functions
+namespace Taskify.Api
 {
   using Microsoft.AspNetCore.Http;
   using Microsoft.AspNetCore.Mvc;
@@ -6,7 +6,6 @@ namespace Taskify.Api.Functions
   using Microsoft.Azure.WebJobs.Extensions.Http;
   using Microsoft.Extensions.Logging;
   using System;
-  using System.Security.Claims;
   using System.Threading.Tasks;
   using System.Web.Http;
   using TaskifyAPI.Managers;
@@ -20,7 +19,7 @@ namespace Taskify.Api.Functions
 
     [FunctionName("GetTasks")]
     public async Task<IActionResult> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "tasks")] HttpRequest req,
+        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "tasks")] HttpRequest req,
         ILogger log)
     {
       try

@@ -5,11 +5,11 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Taskify.Api.Functions
+namespace Taskify.Api
 {
-  public class BaseFunction
+  internal class RequestUtils
   {
-    protected static async Task<T> ParseBodyAsync<T>(HttpRequest req)
+    public static async Task<T> ParseBodyAsync<T>(HttpRequest req)
     {
       string jsonBody = null;
       using (var sr = new StreamReader(req.Body, Encoding.UTF8))

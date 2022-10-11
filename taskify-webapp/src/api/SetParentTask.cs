@@ -1,4 +1,4 @@
-namespace Taskify.Api.Functions
+namespace Taskify.Api
 {
   using Microsoft.AspNetCore.Http;
   using Microsoft.AspNetCore.Mvc;
@@ -6,13 +6,12 @@ namespace Taskify.Api.Functions
   using Microsoft.Azure.WebJobs.Extensions.Http;
   using Microsoft.Extensions.Logging;
   using System;
-  using System.Security.Claims;
   using System.Threading.Tasks;
   using System.Web.Http;
   using TaskifyAPI.Managers;
   using TaskifyAPI.Dtos;
 
-  public class SetParentTask : BaseFunction
+  public class SetParentTask
   {
     private readonly ITaskifyManager Manager;
     public SetParentTask(ITaskifyManager manager)
@@ -23,12 +22,12 @@ namespace Taskify.Api.Functions
     [FunctionName("SetParentTask")]
     public async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "task/parent")] HttpRequest req,
-        ILogger log,
-        ClaimsPrincipal claims)
+        ILogger log)
     {
       try
       {
-        var dto = await ParseBodyAsync<SetParentTaskDto>(req);
+        var dto = await RequestUtils.ParseBodyAsync<SetParentTaskDto>(req);
+        var claims = AuthUtils.Parse(req);
         req.AddUserIdTelemetry(claims);
         var result = await Manager.SetParentAsync(dto);
         return new OkObjectResult(result);

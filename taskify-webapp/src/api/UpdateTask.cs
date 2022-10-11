@@ -1,4 +1,4 @@
-namespace Taskify.Api.Functions
+namespace Taskify.Api
 {
   using Microsoft.AspNetCore.Http;
   using Microsoft.AspNetCore.Mvc;
@@ -14,7 +14,7 @@ namespace Taskify.Api.Functions
   using System.Collections.Generic;
   using Taskify.Data.Models;
 
-  public class UpdateTask : BaseFunction
+  public class UpdateTask
   {
     private readonly ITaskifyManager Manager;
     public UpdateTask(ITaskifyManager manager)
@@ -30,9 +30,9 @@ namespace Taskify.Api.Functions
       try
       {
         var claims = AuthUtils.Parse(req);
-        var task = await ParseBodyAsync<UpdateTaskDto>(req);
+        var task = await RequestUtils.ParseBodyAsync<UpdateTaskDto>(req);
         var existingTask = await Manager.Fetch(task.Key);
-        if(!HasUpdatePermissions(existingTask, claims))
+        if (!HasUpdatePermissions(existingTask, claims))
         {
           return new UnauthorizedResult();
         }
