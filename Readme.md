@@ -1,5 +1,5 @@
 ## Running Locally
-After donwloading the repository, create a file under the Client/src/api folder with the name of local.settings.json containing the following configuration:
+After donwloading the repository, create a file under the taskify-webapp/src/api folder with the name of local.settings.json containing the following configuration:
 ```
 {
     "IsEncrypted": false,
@@ -15,7 +15,7 @@ Run npm install to get the development
 environment ready.
 
 ```
-./Client> npm i
+./taskify-webapp> npm i
 ```
 2. Run Azurite
 
@@ -33,14 +33,14 @@ Open the VS Solution under the Server folder, and run the Taskify.API project.
 
 4. Run the Angular Front End on a separate command line.
 ```
-./Client> ng serve
+./taskify-webapp> ng serve
 ```
 
 By this point you should have the Server side running on the port `7155` and the Angular App running on port `4200`
 
 5. You may now start the SWA CLI
 ```
-./Client> npm run start:swa
+./taskify-webapp> npm run start:swa
 ```
 
 This will make your app visible at `localhost:4280`
