@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taskify.Managers", "Taskify
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taskify.Api", "..\taskify-webapp\src\api\Taskify.Api.csproj", "{C6B3B9FD-2EC1-412F-9035-35CA6CF485B4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Taskify.Test", "Taskify.Test\Taskify.Test.csproj", "{DB39A748-A1D8-4D42-8C94-231448DFD6AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C6B3B9FD-2EC1-412F-9035-35CA6CF485B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6B3B9FD-2EC1-412F-9035-35CA6CF485B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6B3B9FD-2EC1-412F-9035-35CA6CF485B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB39A748-A1D8-4D42-8C94-231448DFD6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB39A748-A1D8-4D42-8C94-231448DFD6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB39A748-A1D8-4D42-8C94-231448DFD6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB39A748-A1D8-4D42-8C94-231448DFD6AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

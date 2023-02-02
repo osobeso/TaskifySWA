@@ -12,8 +12,10 @@
             var service = new AzureTableStorageService(config);
             collection.AddSingleton<IAzureTableStorageService>(service);
             collection.AddScoped<ITaskRepository, TaskStorageRepository>();
+            collection.AddScoped<IUserProfileRepository, UserProfileStorageRepository>();
             collection.AddAutoMapper(typeof(EntityMapperProfile));
             TaskStorageRepository.CreateTableIfNotExists(service);
+            UserProfileStorageRepository.CreateTableIfNotExists(service);
             return collection;
         }
     }

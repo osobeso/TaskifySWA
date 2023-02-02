@@ -45,8 +45,8 @@
         {
             var task = await FetchTaskOrThrowAsync(dto.Key);
             await Tasks.DeleteAsync(task.Id, task.ParentTask);
-            task.ParentTask = dto.NewParentId;
-            return await Tasks.UpsertAsync(task);
+            var newTask = new TaskModel(task, dto.NewParentId);
+            return await Tasks.UpsertAsync(newTask);
         }
 
         public async Task<TaskModel> UpdateTaskAsync(UpdateTaskDto dto)

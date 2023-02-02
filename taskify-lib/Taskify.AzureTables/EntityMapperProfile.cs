@@ -16,6 +16,10 @@
                 .ForMember(nameof(TaskEntity.PartitionKey), 
                 opt => opt.MapFrom(s => s.ParentTask.HasValue ? s.ParentTask.Value.ToString() : "root"))
                 .ForMember(nameof(TaskEntity.RowKey), opt => opt.MapFrom(s => s.Id.ToString()));
+
+
+            CreateMap<UserProfileEntity, UserProfileModel>()
+                .ReverseMap();
         }
     }
 }
